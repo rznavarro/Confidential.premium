@@ -29,8 +29,7 @@
     "postcss": "^8.4.29",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2",
-    "vite": "^4.4.9",
-    "vite-plugin-checker": "^0.6.5"
+    "vite": "^4.4.9"
   },
   "engines": {
     "node": ">=16.0.0"

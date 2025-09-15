@@ -6,7 +6,7 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist",
-        "installCommand": "rm -rf node_modules && npm install",
+        "installCommand": "npm install --prefer-offline --no-audit --progress=false",
         "buildCommand": "npm run build",
         "zeroConfig": true
       }
@@ -17,5 +17,7 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
 }

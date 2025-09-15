@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentType, SVGProps } from 'react';
 import { Users, BarChart3, Building, Target, DollarSign, FileText } from 'lucide-react';
 
 interface SidebarProps {
@@ -12,7 +12,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onSectionChange, 
   userRole 
 }) => {
-  const sections = [
+  interface Section {
+    id: string;
+    label: string;
+    icon: ComponentType<SVGProps<SVGSVGElement>>;
+  }
+
+  const sections: Section[] = [
     { id: 'team', label: 'Equipo', icon: Users },
     { id: 'metrics', label: 'Métricas', icon: BarChart3 },
     { id: 'deals', label: 'Deals', icon: DollarSign },
@@ -25,7 +31,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     <aside className="w-64 bg-slate-900/50 backdrop-blur-sm border-r border-slate-700/50 p-6">
       <nav className="space-y-2">
         {sections.map((section) => {
-          const Icon = section.icon;
+          const Icon: React.ComponentType<SVGProps<SVGSVGElement>> = section.icon;
           const isActive = activeSection === section.id;
           
           return (
